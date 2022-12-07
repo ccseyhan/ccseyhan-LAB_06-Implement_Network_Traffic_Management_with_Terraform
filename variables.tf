@@ -32,3 +32,17 @@ variable "vnet3_name" {
     default = "az104-06-vnet3"
 
 }
+
+variable "vm0_name" {
+    default = "az104-06-vm0"
+  
+}
+
+variable "vm0_username" {
+    default = "username"
+  
+}
+
+variable "vm0_password" {
+  
+}

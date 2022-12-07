@@ -17,23 +17,31 @@ resource "azurerm_virtual_network" "vnet01" {
   resource_group_name = azurerm_resource_group.rg1.name
   address_space       = ["10.60.0.0/22"]
 
+}
+
 resource "azurerm_subnet" "vnet01_subnet0" {
     name           = "Subnet0"
-    address_prefix = "10.60.0.0/24"
-  }
+    resource_group_name = azurerm_resource_group.rg1.name
+    virtual_network_name = azurerm_virtual_network.vnet01.name
+    address_prefixes = ["10.60.0.0/24"]
+    }
 
-resource "azurerm_subnet" "vnet_subnet1" {
+resource "azurerm_subnet" "vnet01_subnet1" {
     name           = "Subnet1"
-    address_prefix = "10.60.1.0/24"
+    resource_group_name = azurerm_resource_group.rg1.name
+    virtual_network_name = azurerm_virtual_network.vnet01.name
+    address_prefixes = ["10.60.1.0/24"]
   }
 
-resource "azurerm_subnet" "vnet_subnet_appgw"{
+resource "azurerm_subnet" "vnet01_subnet_appgw"{
     name           = "Subnet-appgw"
-    address_prefix = "10.60.3.224/27"
+    resource_group_name = azurerm_resource_group.rg1.name
+    virtual_network_name = azurerm_virtual_network.vnet01.name
+    address_prefixes = ["10.60.3.224/27"]
   }
 
 
-}
+
 
 
 

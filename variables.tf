@@ -46,3 +46,17 @@ variable "vm0_username" {
 variable "vm0_password" {
   
 }
+
+variable "vm1_name" {
+    default = "az104-06-vm1"
+  
+}
+
+variable "vm1_username" {
+    default = "username"
+  
+}
+
+variable "vm1_password" {
+  
+}

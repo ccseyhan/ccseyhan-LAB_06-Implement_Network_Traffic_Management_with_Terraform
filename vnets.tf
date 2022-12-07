@@ -63,6 +63,15 @@ resource "azurerm_virtual_network" "vnet2" {
     address_prefixes = ["10.62.0.0/24"]
   }
 
+
+
+
+
+
+
+
+
+
 resource "azurerm_virtual_network" "vnet3" {
   name                = var.vnet3_name
   location            = var.location

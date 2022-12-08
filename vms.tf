@@ -2,9 +2,11 @@
 
 
 resource "azurerm_network_interface" "vm0_nic" {
-  name                = "${var.vm0_name}-nic"
-  location            = var.location
-  resource_group_name = azurerm_resource_group.rg1.name
+  name                 = "${var.vm0_name}-nic"
+  location             = var.location
+  resource_group_name  = azurerm_resource_group.rg1.name
+  enable_ip_forwarding = true
+
 
   ip_configuration {
     name                          = "vm0_configuration"

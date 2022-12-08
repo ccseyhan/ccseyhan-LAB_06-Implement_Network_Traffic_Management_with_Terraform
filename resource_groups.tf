@@ -4,12 +4,12 @@ resource "azurerm_resource_group" "rg1" {
 }
 
 resource "azurerm_resource_group" "rg4" {
- name = var.rg4_name
- location = var.location
-  
+  name     = var.rg4_name
+  location = var.location
+
 }
 
-resource "azurerm_resource_group" "rg5" {  
-    name = var.rg5_name
-    location = var.location
+resource "azurerm_resource_group" "rg5" {
+  name     = var.rg5_name
+  location = var.location
 }

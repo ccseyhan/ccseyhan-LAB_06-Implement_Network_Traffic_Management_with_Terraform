@@ -2,12 +2,56 @@ resource "azurerm_network_security_group" "lb_vms_nsg" {
   name                = "lb_vms_nsg"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg1.name
+  security_rule {
+    name                       = "port 80 enabled"
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "80"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+  security_rule {
+    name                       = "por 3389 enabled"
+    priority                   = 120
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "3389"
+    destination_port_range     = "3389"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 }
 
 resource "azurerm_network_security_group" "appgw_vms_nsg" {
   name                = "appgw_vms_nsg"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg1.name
+    security_rule {
+    name                       = "port 80 enabled"
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "80"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+  security_rule {
+    name                       = "por 3389 enabled"
+    priority                   = 120
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "3389"
+    destination_port_range     = "3389"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 }
 
 

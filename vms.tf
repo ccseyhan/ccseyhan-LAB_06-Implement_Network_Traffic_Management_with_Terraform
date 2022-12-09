@@ -12,6 +12,8 @@ resource "azurerm_network_interface" "vm0_nic" {
     name                          = "vm0_configuration"
     subnet_id                     = azurerm_subnet.vnet01_subnet0.id
     private_ip_address_allocation = "Dynamic"
+    # load_balancer_backend_address_pools_ids = azurerm_network_interface_backend_address_pool_association.vm0_lb_config.id
+    
   }
 }
 resource "azurerm_network_interface_security_group_association" "vm0_nsg_config" {

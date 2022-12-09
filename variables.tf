@@ -89,3 +89,7 @@ variable "route23_name" {
 variable "route32_name" {
   default = "az104-06-rt32"
 }
+
+variable "lb1_name" {
+  default = "az104-06-lb4"
+}

@@ -81,3 +81,11 @@ variable "pip4_name" {
 variable "pip5_name" {
   default = "az104-06-pip5"
 }
+
+variable "route23_name" {
+  default = "az104-06-rt23"
+}
+
+variable "route32_name" {
+  default = "az104-06-rt32"
+}

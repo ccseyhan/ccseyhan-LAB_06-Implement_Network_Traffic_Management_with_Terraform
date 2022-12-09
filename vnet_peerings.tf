@@ -10,6 +10,7 @@ resource "azurerm_virtual_network_peering" "Vnet2ToVnet01" {
   resource_group_name       = azurerm_resource_group.rg1.name
   virtual_network_name      = azurerm_virtual_network.vnet2.name
   remote_virtual_network_id = azurerm_virtual_network.vnet01.id
+  allow_forwarded_traffic   = true
 }
 
 
@@ -26,4 +27,5 @@ resource "azurerm_virtual_network_peering" "Vnet3ToVnet01" {
   resource_group_name       = azurerm_resource_group.rg1.name
   virtual_network_name      = azurerm_virtual_network.vnet3.name
   remote_virtual_network_id = azurerm_virtual_network.vnet01.id
+  allow_forwarded_traffic   = true
 }

@@ -34,13 +34,72 @@ resource "azurerm_windows_virtual_machine" "vm0" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_reference {
+source_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
-    sku       = "2022-Datacenter"
+    sku       = "2019-Datacenter"
     version   = "latest"
   }
 }
+
+#VM0 extensions
+
+
+#  resource "azurerm_virtual_machine_extension" "vm_extension_install_2" {
+#    name                       = "vm_extension_2"
+#    virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
+#    publisher                  = "Microsoft.Powershell"
+#    type                       = "CustomScriptExtension"
+#    type_handler_version       = "2.0"
+
+#    settings = <<SETTINGS
+#      {
+#          "commandToExecute": "powershell -Install-WindowsFeature -Name Routing -IncludeManagementTools -IncludeAllSubFeature"
+#      }
+#  SETTINGS
+#  }
+
+#  resource "azurerm_virtual_machine_extension" "vm_extension_install_3" {
+#    name                       = "vm_extension_3"
+#    virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
+#    publisher                  = "Microsoft.Powershell"
+#    type                       = "CustomScriptExtension"
+#    type_handler_version       = "2.0"
+
+#    settings = <<SETTINGS
+#      {
+#          "commandToExecute": "powershell -Install-WindowsFeature -Name RSAT-RemoteAccess-Powershell"
+#      }
+#  SETTINGS
+#  }
+
+#  resource "azurerm_virtual_machine_extension" "vm_extension_install_4" {
+#    name                       = "vm_extension_4"
+#    virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
+#    publisher                  = "Microsoft.Powershell"
+#    type                       = "CustomScriptExtension"
+#    type_handler_version       = "2.0"
+
+#    settings = <<SETTINGS
+#      {
+#          "commandToExecute": "powershell -Install-RemoteAccess -VpnType RoutingOnly"
+#      }
+#  SETTINGS
+#  }
+
+# resource "azurerm_virtual_machine_extension" "vm_extension_install_5" {
+#   name                       = "vm_extension_5"
+#   virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
+#   publisher                  = "Microsoft.Compute"
+#   type                       = "CustomScriptExtension"
+#   type_handler_version       = "1.8"
+
+#   settings = <<SETTINGS
+#     {
+#         "commandToExecute": "powershell -Get-NetAdapter | Set-NetIPInterface -Forwarding Enabled"
+#     }
+# SETTINGS
+# }
 
 
 #VM1
@@ -76,10 +135,10 @@ resource "azurerm_windows_virtual_machine" "vm1" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_reference {
+source_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
-    sku       = "2022-Datacenter"
+    sku       = "2019-Datacenter"
     version   = "latest"
   }
 }
@@ -118,10 +177,10 @@ resource "azurerm_windows_virtual_machine" "vm2" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_reference {
+source_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
-    sku       = "2022-Datacenter"
+    sku       = "2019-Datacenter"
     version   = "latest"
   }
 }
@@ -163,10 +222,10 @@ resource "azurerm_windows_virtual_machine" "vm3" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_reference {
+source_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
-    sku       = "2022-Datacenter"
+    sku       = "2019-Datacenter"
     version   = "latest"
   }
 }

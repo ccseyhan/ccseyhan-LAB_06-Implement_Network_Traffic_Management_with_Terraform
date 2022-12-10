@@ -47,61 +47,77 @@ source_image_reference {
 #VM0 extensions
 
 
-  # resource "azurerm_virtual_machine_extension" "vm_extension_install_2" {
-  #   name                       = "vm_extension_2"
-  #   virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
-  #   type = "CustomScriptExtension"
-  #   publisher = "Microsoft.Compute"
-  #   type_handler_version = "1.10.14"
+resource "azurerm_virtual_machine_extension" "vm01-extensions" {
+  name                 = "vm01-ext-webserver"
+  virtual_machine_id   = azurerm_windows_virtual_machine.vm0.id
+  publisher            = "Microsoft.Compute"
+  type                 = "CustomScriptExtension"
+  type_handler_version = "1.10"
 
-  #   settings = <<SETTINGS
-  #     {
-  #         "commandToExecute": "powershell -Install-WindowsFeature -Name Routing -IncludeManagementTools -IncludeAllSubFeature"
-  #     }
-  # SETTINGS
-  # }
+  settings = <<SETTINGS
+    {
+        "commandToExecute": "powershell Add-WindowsFeature Web-Server"
+    }
+SETTINGS
 
-#  resource "azurerm_virtual_machine_extension" "vm_extension_install_3" {
-#    name                       = "vm_extension_3"
+}
+
+
+  #  resource "azurerm_virtual_machine_extension" "vm_extension_install_21" {
+  #    name                       = "vm_extension_21"
+  #    virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
+  #    publisher                  = "Microsoft.Azure.Extensions"
+  #    type                       = "CustomScript"
+  #    type_handler_version       = "2.0"
+
+  #    settings = <<SETTINGS
+  #      {
+  #          "commandToExecute": "powershell -Install-WindowsFeature -Name Routing -IncludeManagementTools -IncludeAllSubFeature"
+  #      }
+  #  SETTINGS
+  #  }
+
+#   resource "azurerm_virtual_machine_extension" "vm_extension_install_3" {
+#     name                       = "vm_extension_3"
+#     virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
+#     publisher            = "Microsoft.Azure.Extensions"
+#     type                 = "CustomScript"
+#     type_handler_version = "2.0"
+
+#     settings = <<SETTINGS
+#       {
+#           "commandToExecute": "powershell -Install-WindowsFeature -Name RSAT-RemoteAccess-Powershell"
+#       }
+#   SETTINGS
+#   }
+
+#   resource "azurerm_virtual_machine_extension" "vm_extension_install_4" {
+#     name                       = "vm_extension_4"
+#     virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
+#     publisher            = "Microsoft.Azure.Extensions"
+#     type                 = "CustomScript"
+#     type_handler_version = "2.0"
+
+#     settings = <<SETTINGS
+#       {
+#           "commandToExecute": "powershell -Install-RemoteAccess -VpnType RoutingOnly"
+#       }
+#   SETTINGS
+#   }
+
+#  resource "azurerm_virtual_machine_extension" "vm_extension_install_5" {
+#    name                       = "vm_extension_5"
 #    virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
-#    publisher                  = "Microsoft.Powershell"
+#    publisher                  = "Microsoft.Compute"
 #    type                       = "CustomScriptExtension"
-#    type_handler_version       = "2.0"
+#    type_handler_version       = "1.10"
 
 #    settings = <<SETTINGS
 #      {
-#          "commandToExecute": "powershell -Install-WindowsFeature -Name RSAT-RemoteAccess-Powershell"
+#          "commandToExecute": "powershell -Get-NetAdapter | Set-NetIPInterface -Forwarding Enabled"
 #      }
 #  SETTINGS
 #  }
-
-#  resource "azurerm_virtual_machine_extension" "vm_extension_install_4" {
-#    name                       = "vm_extension_4"
-#    virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
-#    publisher                  = "Microsoft.Powershell"
-#    type                       = "CustomScriptExtension"
-#    type_handler_version       = "2.0"
-
-#    settings = <<SETTINGS
-#      {
-#          "commandToExecute": "powershell -Install-RemoteAccess -VpnType RoutingOnly"
-#      }
-#  SETTINGS
-#  }
-
-# resource "azurerm_virtual_machine_extension" "vm_extension_install_5" {
-#   name                       = "vm_extension_5"
-#   virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
-#   publisher                  = "Microsoft.Compute"
-#   type                       = "CustomScriptExtension"
-#   type_handler_version       = "1.8"
-
-#   settings = <<SETTINGS
-#     {
-#         "commandToExecute": "powershell -Get-NetAdapter | Set-NetIPInterface -Forwarding Enabled"
-#     }
-# SETTINGS
-# }
 
 
 #VM1
@@ -145,6 +161,21 @@ source_image_reference {
   }
 }
 
+resource "azurerm_virtual_machine_extension" "vm1-extensions" {
+  name                 = "vm1-ext-webserver"
+  virtual_machine_id   = azurerm_windows_virtual_machine.vm1.id
+  publisher            = "Microsoft.Compute"
+  type                 = "CustomScriptExtension"
+  type_handler_version = "1.10"
+
+  settings = <<SETTINGS
+    {
+        "commandToExecute": "powershell Add-WindowsFeature Web-Server"
+    }
+SETTINGS
+
+}
+
 
 #VM2
 
@@ -185,6 +216,22 @@ source_image_reference {
     sku       = "2019-Datacenter"
     version   = "latest"
   }
+}
+
+#VM 2 webserver extension
+resource "azurerm_virtual_machine_extension" "vm2-extensions" {
+  name                 = "vm2-ext-webserver"
+  virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
+  publisher            = "Microsoft.Compute"
+  type                 = "CustomScriptExtension"
+  type_handler_version = "1.10"
+
+  settings = <<SETTINGS
+    {
+        "commandToExecute": "powershell Add-WindowsFeature Web-Server"
+    }
+SETTINGS
+
 }
 
 
@@ -230,4 +277,19 @@ source_image_reference {
     sku       = "2019-Datacenter"
     version   = "latest"
   }
+}
+
+resource "azurerm_virtual_machine_extension" "vm3-extensions" {
+  name                 = "vm3-ext-webserver"
+  virtual_machine_id   = azurerm_windows_virtual_machine.vm3.id
+  publisher            = "Microsoft.Compute"
+  type                 = "CustomScriptExtension"
+  type_handler_version = "1.10"
+
+  settings = <<SETTINGS
+    {
+        "commandToExecute": "powershell Add-WindowsFeature Web-Server"
+    }
+SETTINGS
+
 }

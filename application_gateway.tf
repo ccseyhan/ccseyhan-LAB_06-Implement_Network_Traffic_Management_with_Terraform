@@ -10,7 +10,7 @@ locals {
 
 resource "azurerm_application_gateway" "network" {
   name                = var.appgw_name
-  resource_group_name = azurerm_resource_group.rg1.name
+  resource_group_name = azurerm_resource_group.rg5.name
   location            = var.location
 
   sku {

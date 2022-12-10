@@ -93,3 +93,7 @@ variable "route32_name" {
 variable "lb1_name" {
   default = "az104-06-lb4"
 }
+
+variable "appgw_name" {
+  default = "az104-06-appgw5"
+}

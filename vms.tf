@@ -47,19 +47,19 @@ source_image_reference {
 #VM0 extensions
 
 
-#  resource "azurerm_virtual_machine_extension" "vm_extension_install_2" {
-#    name                       = "vm_extension_2"
-#    virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
-#    publisher                  = "Microsoft.Powershell"
-#    type                       = "CustomScriptExtension"
-#    type_handler_version       = "2.0"
+  # resource "azurerm_virtual_machine_extension" "vm_extension_install_2" {
+  #   name                       = "vm_extension_2"
+  #   virtual_machine_id         = azurerm_windows_virtual_machine.vm0.id
+  #   type = "CustomScriptExtension"
+  #   publisher = "Microsoft.Compute"
+  #   type_handler_version = "1.10.14"
 
-#    settings = <<SETTINGS
-#      {
-#          "commandToExecute": "powershell -Install-WindowsFeature -Name Routing -IncludeManagementTools -IncludeAllSubFeature"
-#      }
-#  SETTINGS
-#  }
+  #   settings = <<SETTINGS
+  #     {
+  #         "commandToExecute": "powershell -Install-WindowsFeature -Name Routing -IncludeManagementTools -IncludeAllSubFeature"
+  #     }
+  # SETTINGS
+  # }
 
 #  resource "azurerm_virtual_machine_extension" "vm_extension_install_3" {
 #    name                       = "vm_extension_3"

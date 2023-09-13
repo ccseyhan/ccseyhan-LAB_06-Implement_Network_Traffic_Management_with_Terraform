@@ -1,2 +1,1 @@
-I couldn't find the vm_extension_publisher for using the "az104-06-vm01" as a hub network appliance, yet. You still need to use 
-Azure Portal to run the commands on powershell in "az104-06-vm01" 's run a command blade. I would like to thank Yasin Cetindil for his help.
+
